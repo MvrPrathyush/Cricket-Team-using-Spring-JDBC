@@ -1,0 +1,3 @@
+2023-03-13 10:41:34 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM TEAM[*]:"; SQL statement:
+SELECT * FROM TEAM: [42000-214]
