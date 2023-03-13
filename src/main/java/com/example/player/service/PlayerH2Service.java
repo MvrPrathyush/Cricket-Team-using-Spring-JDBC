@@ -1,16 +1,14 @@
 package com.example.player.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.player.model.Player;
+import com.example.player.model.PlayerRowMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import com.example.player.model.Player;
-import com.example.player.model.PlayerRowMapper;
+import java.util.ArrayList;
 
 @Service
 public class PlayerH2Service {
@@ -19,9 +17,7 @@ public class PlayerH2Service {
     private JdbcTemplate db;
 
     public ArrayList<Player> getPlayers() {
-    	List<Player> playersList = db.query("select * from team", new PlayerRowMapper());
-    	ArrayList<Player> players = new ArrayList<>(playersList);
-    	return players;
+        return (ArrayList<Player>) db.query("select * from team", new PlayerRowMapper());
     }
 
     public Player getPlayerById(int playerId) {
